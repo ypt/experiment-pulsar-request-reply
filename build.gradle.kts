@@ -1,10 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    application
     kotlin("jvm") version "1.3.72"
 }
-application.mainClassName = "com.example.demo.MainKt"
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
@@ -25,7 +23,7 @@ tasks.withType<Jar>() {
     manifest {
         attributes["Main-Class"] = "com.example.demo.ApplicationKt"
     }
-    configurations["compileClasspath"].forEach { file: File ->
+    configurations["compileClasspath"].forEach { file ->
         from(zipTree(file.absoluteFile))
     }
 }
